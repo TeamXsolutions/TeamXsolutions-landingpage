@@ -1,3 +1,6 @@
+import Image from "next/image";
+import ContactForm from "./contact-form";
+
 const products = [
   {
     id: "xpense",
@@ -31,10 +34,10 @@ const products = [
   },
 ];
 
-function Mark({ light = false }: { light?: boolean }) {
+function Mark() {
   return (
-    <a className={`brand${light ? " brand-light" : ""}`} href="#top" aria-label="TeamX home">
-      <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
+    <a className="brand" href="#top" aria-label="TeamX home">
+      <Image className="brand-logo" src="/teamx-logo.png" alt="" width={42} height={42} priority />
       <span>Team<span className="brand-x">X</span></span>
     </a>
   );
@@ -93,7 +96,7 @@ export default function Home() {
           <nav className="desktop-nav" aria-label="Main navigation">
             <a href="#products">Products</a><a href="#about">About us</a><a href="#contact">Contact</a>
           </nav>
-          <a className="header-cta" href="mailto:teamxworkspaces@gmail.com">Let’s talk <Arrow diagonal /></a>
+          <a className="header-cta" href="#contact">Let’s talk <Arrow diagonal /></a>
         </div>
       </header>
 
@@ -166,7 +169,12 @@ export default function Home() {
 
       <section className="closing-section" id="contact">
         <div className="closing-orb" aria-hidden="true"><span>✳</span></div>
-        <div className="closing-content"><div className="eyebrow"><span className="eyebrow-line" /> START A CONVERSATION</div><h2>Have a good idea?<br /><span>We’re listening.</span></h2><p>Want to learn more about what we’re building, explore a collaboration, or just say hello? Drop us a note.</p><a className="button button-dark" href="mailto:teamxworkspaces@gmail.com">teamxworkspaces@gmail.com <Arrow diagonal /></a></div>
+        <div className="closing-content">
+          <div className="eyebrow"><span className="eyebrow-line" /> START A CONVERSATION</div>
+          <h2>Have a good idea?<br /><span>We’re listening.</span></h2>
+          <p>Tell us what you’re working on, ask a question, or just say hello. We’d love to hear from you.</p>
+        </div>
+        <ContactForm />
         <div className="closing-index">TEAMX&nbsp; / &nbsp;TECHNOLOGY<br />BUILT AROUND EVERYDAY NEEDS</div>
       </section>
 
