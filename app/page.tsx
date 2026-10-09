@@ -100,7 +100,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-glow" aria-hidden="true" />
         <div className="hero-content">
-          <div className="eyebrow"><span className="eyebrow-line" /> INDEPENDENT TECHNOLOGY STUDIO</div>
+          <div className="eyebrow"><span className="eyebrow-line" /> BUILDING PRACTICAL DIGITAL PRODUCTS</div>
           <h1>Thoughtful tech<br />for <span>everyday</span> life.</h1>
           <p className="hero-copy">We’re TeamX. We build focused digital products that make the important things a little easier to manage.</p>
           <a className="button button-dark" href="#products">Meet our products <Arrow /></a>
@@ -131,7 +131,7 @@ export default function Home() {
       <section className="products-section section-pad" id="products">
         <div className="section-heading">
           <div><div className="eyebrow"><span className="eyebrow-line" /> OUR PRODUCT PORTFOLIO</div><h2>Three ideas.<br /><span>Made for real life.</span></h2></div>
-          <p>Different parts of the day call for different tools. Our first products are being built around the details that make each one matter.</p>
+          <p>Different parts of the day call for different tools. Our first products are being built around the details that make each one matter. The previews below are illustrative concepts; all three products are in development.</p>
         </div>
         <div className="product-grid">
           {products.map((product) => (
@@ -167,7 +167,7 @@ export default function Home() {
       <section className="closing-section" id="contact">
         <div className="closing-orb" aria-hidden="true"><span>✳</span></div>
         <div className="closing-content"><div className="eyebrow"><span className="eyebrow-line" /> START A CONVERSATION</div><h2>Have a good idea?<br /><span>We’re listening.</span></h2><p>Want to learn more about what we’re building, explore a collaboration, or just say hello? Drop us a note.</p><a className="button button-dark" href="mailto:teamxworkspaces@gmail.com">teamxworkspaces@gmail.com <Arrow diagonal /></a></div>
-        <div className="closing-index">TEAMX&nbsp; / &nbsp;INDIA<br />20° 35′ N &nbsp; 78° 57′ E</div>
+        <div className="closing-index">TEAMX&nbsp; / &nbsp;TECHNOLOGY<br />BUILT AROUND EVERYDAY NEEDS</div>
       </section>
 
       <footer className="site-footer">
