@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TeamX
 
-## Getting Started
+A complete, responsive, single-page TeamX company website built with Next.js 16 App Router, TypeScript, React, and plain CSS. Includes Geist Sans through `next/font`, CSS/SVG concept illustrations, responsive navigation, independent FAQ disclosures, and product inquiry email links.
 
-First, run the development server:
+## Run locally
 
-```bash
+Use Node.js 20.9 or newer and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. No environment variables, database, authentication, or external service configuration is required.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+On Windows PowerShell, use `npm.cmd` instead of `npm` if execution policy blocks `npm.ps1` (for example, `npm.cmd run dev`).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production
 
-## Learn More
+```sh
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+Geist font files and their SIL Open Font License are bundled in `app/fonts` and loaded through `next/font/local`. Builds and visitors need no Google Fonts connection.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Source
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/page.tsx`: complete landing page, product previews, and native accessible FAQs. The first FAQ starts open; each disclosure opens independently.
+- `app/site-header.tsx`: mobile navigation, Escape handling, outside-click dismissal, and responsive menu reset.
+- `app/globals.css`: brand styling, responsive layouts, focus indicators, and reduced-motion support.
+- `app/layout.tsx`: Geist font and page metadata.
+- `app/icon.svg`: TeamX favicon.
 
-## Deploy on Vercel
+All product/navigation links target sections of this page. Inquiry links open the visitor’s mail application with appropriate subjects; LinkedIn opens in a new tab. Product visuals are illustrative and every product is marked as launching soon.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The prior contact form, contact API, demo route, and session proxy have been removed from the application. Existing unused service utilities and dependencies are retained so unrelated setup is not overwritten.
