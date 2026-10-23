@@ -1,28 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
-const geist = localFont({
-  src: [
-    { path: "./fonts/Geist-Regular.ttf", weight: "400", style: "normal" },
-    { path: "./fonts/Geist-Medium.ttf", weight: "500", style: "normal" },
-    { path: "./fonts/Geist-SemiBold.ttf", weight: "600", style: "normal" },
-    { path: "./fonts/Geist-Bold.ttf", weight: "700", style: "normal" },
-    { path: "./fonts/Geist-ExtraBold.ttf", weight: "800", style: "normal" },
-  ],
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-geist",
+  variable: "--font-ibm-plex-sans",
 });
 export const metadata: Metadata = {
-  title: "TeamX — Thoughtful tech for everyday life.",
+  title: "TeamX — Useful software for everyday life",
   description:
-    "TeamX builds thoughtful software for everyday life. Meet Xpense, FuelX and CareX — launching soon.",
+    "TeamX builds focused apps for personal finances, vehicle costs, and hospital operations. Meet Xpense, FuelX, and CareX.",
   icons: { icon: "/icon.svg" },
   openGraph: {
-    title: "TeamX — Thoughtful tech for everyday life.",
+    title: "TeamX — Useful software for everyday life",
     description:
-      "TeamX builds thoughtful software for everyday life. Meet Xpense, FuelX and CareX — launching soon.",
+      "TeamX builds focused apps for personal finances, vehicle costs, and hospital operations. Meet Xpense, FuelX, and CareX.",
     type: "website",
   },
 };
@@ -32,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn(geist.className, "font-sans", geist.variable)}>
+    <html lang="en" className={ibmPlexSans.variable}>
       <body>{children}</body>
     </html>
   );

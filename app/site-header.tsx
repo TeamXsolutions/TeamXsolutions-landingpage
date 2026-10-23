@@ -1,16 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const links = [
-  ["Our products", "#products"],
-  ["About TeamX", "#about"],
-  ["Our approach", "#approach"],
-  ["FAQs", "#faq"],
-  ["Let’s talk ↗", "#contact"],
+  ["Our products", "products"],
+  ["Product focus", "product-focus"],
+  ["How we work", "approach"],
+  ["Careers", "careers"],
+  ["FAQs", "faq"],
+  ["Let’s talk", "contact"],
 ];
 
-export default function Header() {
+export default function Header({ homePage = false }: { homePage?: boolean }) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const header = useRef<HTMLElement>(null);
@@ -40,14 +42,14 @@ export default function Header() {
   }, [open]);
   return (
     <header ref={header}>
-      <div className="wrap nav">
+      <div className="shell nav">
         <a
-          href="#top"
+          href={homePage ? "#top" : "/#top"}
           className="logo"
           aria-label="TeamX home"
           onClick={() => setOpen(false)}
         >
-          Team<b>X</b>
+          Team<Image className="logo-mark" src="/teamx-logo.png" width={32} height={32} alt="" />
         </a>
         <button
           ref={toggle}
@@ -60,13 +62,15 @@ export default function Header() {
           {open ? "Close ×" : "Menu ☰"}
         </button>
         <nav className="desktop-nav" aria-label="Main navigation">
-          {links.map(([label, href]) => (
+          {links.map(([label, section]) => {
+            const href = section === "careers" ? "/careers" : `${homePage ? "" : "/"}#${section}`;
+            return (
             <a
               href={href}
               key={href}
-              className={href === "#contact" ? "nav-contact" : undefined}
+              className={section === "contact" ? "nav-contact" : undefined}
             >
-              {href === "#contact" ? (
+              {section === "contact" ? (
                 <>
                   Let’s talk <span>↗</span>
                 </>
@@ -74,7 +78,8 @@ export default function Header() {
                 label
               )}
             </a>
-          ))}
+            );
+          })}
         </nav>
       </div>
       <nav
@@ -83,11 +88,12 @@ export default function Header() {
         aria-label="Mobile navigation"
         hidden={!open}
       >
-        {links.map(([label, href]) => (
-          <a href={href} key={href} onClick={() => setOpen(false)}>
+        {links.map(([label, section]) => {
+          const href = section === "careers" ? "/careers" : `${homePage ? "" : "/"}#${section}`;
+          return <a href={href} key={href} onClick={() => setOpen(false)}>
             {label}
           </a>
-        ))}
+        })}
       </nav>
     </header>
   );
