@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const geist = localFont({
   src: [
@@ -11,6 +12,7 @@ const geist = localFont({
     { path: "./fonts/Geist-ExtraBold.ttf", weight: "800", style: "normal" },
   ],
   display: "swap",
+  variable: "--font-geist",
 });
 export const metadata: Metadata = {
   title: "TeamX — Thoughtful tech for everyday life.",
@@ -30,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={geist.className}>
+    <html lang="en" className={cn(geist.className, "font-sans", geist.variable)}>
       <body>{children}</body>
     </html>
   );

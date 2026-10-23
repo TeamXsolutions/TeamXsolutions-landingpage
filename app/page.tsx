@@ -1,4 +1,5 @@
 import Header from "./site-header";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 
 export default function Home() {
   return (
@@ -151,9 +152,11 @@ export default function Home() {
                 what we’re working on.
               </p>
             </div>
-            <div className="cards">
-              <article className="card">
-                <div className="demo" aria-hidden="true">
+            <BentoGrid className="cards">
+              <BentoGridItem
+                as="article"
+                className="card p-0 space-y-0"
+                header={<div className="demo" aria-hidden="true">
                   <div className="demo-label">
                     <span>Xpense / Overview</span>
                     <span>•••</span>
@@ -172,8 +175,8 @@ export default function Home() {
                     <i style={{ height: "72%" }}></i>
                   </div>
                   <span className="demo-note">Concept preview</span>
-                </div>
-                <div className="card-content">
+                </div>}
+                title={<div className="card-content">
                   <div className="product-title">
                     <h3>Xpense</h3>
                     <span className="badge">Launching soon</span>
@@ -182,14 +185,16 @@ export default function Home() {
                     Turn transaction statements into a clearer picture of your
                     spending, with financial tracking and AI-powered insights.
                   </p>
-                  <a className="card-bottom" href="#xpense">
+                </div>}
+                description={<a className="card-bottom" href="#xpense">
                     <span>EXPLORE XPENSE</span>
                     <span>↓</span>
-                  </a>
-                </div>
-              </article>
-              <article className="card">
-                <div className="demo fuel" aria-hidden="true">
+                  </a>}
+              />
+              <BentoGridItem
+                as="article"
+                className="card p-0 space-y-0"
+                header={<div className="demo fuel" aria-hidden="true">
                   <div className="demo-label">
                     <span>FuelX / Your vehicle</span>
                     <span>•••</span>
@@ -201,8 +206,8 @@ export default function Home() {
                     <small>A better view of every fill-up.</small>
                   </div>
                   <span className="demo-note">Concept preview</span>
-                </div>
-                <div className="card-content">
+                </div>}
+                title={<div className="card-content">
                   <div className="product-title">
                     <h3>FuelX</h3>
                     <span className="badge">Launching soon</span>
@@ -211,14 +216,16 @@ export default function Home() {
                     Keep track of fuel, mileage, and your vehicle’s journeys.
                     Understand what goes into every kilometre.
                   </p>
-                  <a className="card-bottom" href="#fuelx">
+                </div>}
+                description={<a className="card-bottom" href="#fuelx">
                     <span>EXPLORE FUELX</span>
                     <span>↓</span>
-                  </a>
-                </div>
-              </article>
-              <article className="card">
-                <div className="demo care" aria-hidden="true">
+                  </a>}
+              />
+              <BentoGridItem
+                as="article"
+                className="card p-0 space-y-0"
+                header={<div className="demo care" aria-hidden="true">
                   <div className="demo-label">
                     <span>CareX / Connected care</span>
                     <span>•••</span>
@@ -244,8 +251,8 @@ export default function Home() {
                     </div>
                   </div>
                   <span className="demo-note">Concept preview</span>
-                </div>
-                <div className="card-content">
+                </div>}
+                title={<div className="card-content">
                   <div className="product-title">
                     <h3>CareX</h3>
                     <span className="badge">Launching soon</span>
@@ -255,13 +262,13 @@ export default function Home() {
                     discharge, with dedicated access for doctors, nurses, staff,
                     and patients.
                   </p>
-                  <a className="card-bottom" href="#carex">
+                </div>}
+                description={<a className="card-bottom" href="#carex">
                     <span>EXPLORE CAREX</span>
                     <span>↓</span>
-                  </a>
-                </div>
-              </article>
-            </div>
+                  </a>}
+              />
+            </BentoGrid>
             <p className="portfolio-note">
               Currently in development. A first look at what’s coming, with more
               to share as we build.
